@@ -132,10 +132,12 @@
 							</tr>
 							
 							<tr>
-							<th id= "light_value">5238</th>
+							<th id= "changeText">
+							</th>
+				
 							<th id= "temp_value">no data available</th>
 							<th id= "humid_value" >no data available</th> 
-							<th id= "CO2_value">2300</th>
+							<th id= "CO2_value"></th>
 							</tr>
 	
 							</TABLE>
@@ -271,6 +273,29 @@
 			var tempValue = document.getElementById("temp_value");
 			var temp_from_simblee;
 			var humidValue = document.getElementById("humid_value");
+			
+			
+			var text = ["5238", "5116", "5226"];
+			var counter = 0;
+			var elem = document.getElementById("changeText");
+			setInterval(change, 1000);
+    		function change() {
+				elem.innerHTML = text[counter];
+					counter++;
+					if(counter >= text.length) { counter = 0; }
+    }
+	
+			var textCO2 = ["2645", "2742", "2465"];
+			var counterCO2 = 0;
+			var elemCO2 = document.getElementById("CO2_value");
+			setInterval(change2, 1000);
+    		function change2() {
+				elemCO2.innerHTML = textCO2[counterCO2];
+					counterCO2++;
+					if(counterCO2 >= textCO2.length) { counterCO2 = 0; }
+    }
+	
+		
 			//var humid_from_simblee;
 			
 			
