@@ -146,7 +146,7 @@
 							
 							<h2>Your Ideal Garden Range</h2>
 
-							<TABLE Align="center" Border="8" Width="300">
+							<TABLE Align="center" Border="2" Width="600">
 							
 							
 						
@@ -265,7 +265,7 @@
 			<script type="text/javascript">
             
 			
-			var cloudStatuefs = document.getElementById("cloud_status");
+			var cloudStatus = document.getElementById("cloud_status");
             var lightStatus = document.getElementById("lamp_status");
             var lightImage = document.getElementById("light");
             var button = document.getElementById("button");
