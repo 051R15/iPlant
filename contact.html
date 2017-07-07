@@ -7,52 +7,60 @@
 	</head>
 	<a href="https://www.freecounterstat.com" title="page hits counter"><img src="https://counter6.freecounter.ovh/private/freecounterstat.php?c=acmgwlfs4clgs41r4mykxe7s96qqzwuu" border="0" title="page hits counter" alt="page hits counter"></a>
     
-    <style>
-        
+   <style>
+            
 ul.NavBarstyle {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
+   
 }
-
+        
 li {
     float: left;
 }
 
 li a {
     display: block;
-    color: white;
     text-align: center;
-    padding: 20px 26px;
+    padding: 22px 26px;
+    color : white;
     text-decoration: none;
 }
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
+        
+li.icons a {
+    color:black;
 }
         
+        
+/* Change the link color to #111 (black) on hover */
+li a :hover {
+    background-color: #111;
+}
+
 .active {
     background-color: #4CAF50;
 }
     
     </style>
     
-   
 	<body>
-    
+        
+ <!-- NavBar -->      
+   
+<div class = "NavBar"> 
 <ul class = "NavBarstyle">
-  <li><a href="#home">Home</a></li>
-  <li><a href=tables.html>Data</a></li>
-  <li><a class = "active" href=contact.html>Contact</a></li>
-  <li><a href="#about">About</a></li>
+  <li class = header><a class="headerlink" href=index.html>Home</a></li>
+  <li class = header><a class = "headerlink" href=tables.html>Data</a></li>
+  <li class = header><a class = "active headerlink" href=contact.html>Contact</a></li>
+  <li class = header><a class = "headerlink"  href="#about">About</a></li>
 </ul>
+</div>  
 
-
-
-<!-- NavBar -->
+      
+<!-- Contact -->
 					<section class="wrapper style1 align-center">
 						<div class="inner medium">
 							<h2>Get in touch</h2>
@@ -73,7 +81,23 @@ li a:hover {
 								<ul class="actions">
 									<li><input type="submit" name="submit" id="submit" value="Send Message" /></li>
 								</ul>
+                                </ul>
 							</form>
-
 						</div>
-					</section>
+                    </section>
+        </body>
+    
+  <!-- Footer -->
+					<footer class="wrapper style1 align-center">
+						<div class="inner"> 
+							<ul class="icons" style = "display: inline-block;">
+								<li class = "icons"><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li class = "icons"><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li class = "icons"><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li class = "icons"><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li class = "icons"><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p>&copy; iPlant 2017. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						</div>
+					</footer>
+</html>
