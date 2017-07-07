@@ -7,8 +7,6 @@ uint8_t buttonA;
 
 char valueA[6];
 
-int incomingByte;
-
 void setup() {
   Serial.begin(115200);
   
