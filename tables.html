@@ -4,6 +4,7 @@
        <meta charset="utf-8" />
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+              <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="assets/css/main.css" />
      
    
@@ -73,18 +74,35 @@ li a :hover {
        
  <!-- NavBar -->      
    
-<nav>
-<div class = "NavBar"> 
-<ul class = "NavBarstyle">
-  <li class = header><a class="headerlink" href="index.html">Home</a></li>
-  <li class = header><a class = "active headerlink" href="tables.html">Data</a></li>
-  <li class = header><a class = "headerlink" href="contact.html">Contact</a></li>
-  <li class = header><a class = "headerlink"  href="about.html">About</a></li>
-</ul>
-</div>  
-</nav>
-       
-<body>
+<!-- NavBar new -->
+   <div class="w3-top topNavBar">
+    
+  <div class="w3-bar w3-black" id="myNavbar">
+
+    <a class="w3-bar-item w3-button w3-hover-black  w3-hide-large w3-left" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+      
+    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab">Home</a>
+    <a href="tables.html" class=" w3-green w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab"> Data</a>
+    <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar myTab w3-padding-large" > Contact</a>
+    <a href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab"> About</a>
+
+  </div>
+
+
+   <!-- Navbar on small screens --> 
+  <div id="navDemo" class="w3-bar-block w3-mobile w3-black w3-hide w3-hide-large">
+    <a href="index.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Home</a>
+    <a href="tables.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Data</a>
+    <a href="contact.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
+    <a href="about.html" class="w3-bar-item w3-button" onclick="toggleFunction()">About</a>
+  </div>
+
+
+</div> 
+    
+    
        
 <!-- Five -->
 				
@@ -210,6 +228,21 @@ li a :hover {
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script type="text/javascript" src="SimbleeCloud.js"></script>
+       
+        <script>
+               function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}            
+       
+       
+       </script>
+       
+       
 			<script type="text/javascript">
             
 			
