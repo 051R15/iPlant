@@ -42,6 +42,27 @@ li a :hover {
 .active {
     background-color: #4CAF50;
 }
+  
+/* Change the link color to #111 (black) on hover */
+/*drop down bar*/
+        
+li a :hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+        
+ nav select {
+     display:none;
+} 
+        
+        @media (max-width: 700px) {
+            nav ul {display: none;}
+            nav select {display: inline-block;}
+        }   
     
     </style>
     
@@ -49,14 +70,16 @@ li a :hover {
         
  <!-- NavBar -->      
    
+<nav>
 <div class = "NavBar"> 
 <ul class = "NavBarstyle">
-  <li class = header><a class="headerlink" href=index.html>Home</a></li>
-  <li class = header><a class = "headerlink" href=tables.html>Data</a></li>
-  <li class = header><a class = "active headerlink" href=contact.html>Contact</a></li>
-  <li class = header><a class = "headerlink"  href="#about">About</a></li>
+  <li class = header><a class="headerlink" href="index.html">Home</a></li>
+  <li class = header><a class = "headerlink" href="tables.html">Data</a></li>
+  <li class = header><a class = " active headerlink" href="contact.html">Contact</a></li>
+  <li class = header><a class = "headerlink"  href="about.html">About</a></li>
 </ul>
 </div>  
+</nav>
 
       
 <!-- Contact -->
@@ -84,7 +107,7 @@ li a :hover {
 							</form>
 						</div>
                     </section>
-        </body>
+     
     
   <!-- Footer -->
 					<footer class="wrapper style1 align-center">
@@ -99,4 +122,48 @@ li a :hover {
 							<p>&copy; iPlant 2017. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 						</div>
 					</footer>
+    
+    
+     <!--- Sripts --->
+    
+    		<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="SimbleeCloud.js"></script>
+			<script type="text/javascript">
+                
+                
+   // Create the dropdown base
+                
+$("<select />").appendTo("nav");
+
+// Create default option "Go to..."
+$("<option />", {
+   "selected": "selected",
+   "value"   : "",
+   "text"    : "|||"
+   
+}).appendTo("nav select");
+
+// Populate dropdown with menu items
+$("nav a").each(function() {
+ var el = $(this);
+ $("<option />", {
+     "value"   : el.attr("href"),
+     "text"    : el.text()
+ }).appendTo("nav select");
+});
+            
+$("nav select").change(function() {
+  window.location = $(this).find("option:selected").val();
+});             
+   
+        </script>
+    
+    </body>
+ 
 </html>
