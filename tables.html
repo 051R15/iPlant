@@ -70,7 +70,7 @@ li a :hover {
     
     </style>
     
-   <body>  
+   <body>  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
        
  <!-- NavBar -->      
    
@@ -351,27 +351,13 @@ $("nav select").change(function() {
                 var data = String.fromCharCode(view.getUint8(0));
                 //lightStatus.className = "connected";
                 lightStatus.innerHTML = "Connected";
-
-                if (data == '1') {
-                    lightImage.src = "light_on.png";
-                    buttonText.className = 'on';
-                    buttonText.innerHTML = "Turn Off";
-                } else if (data == '0') {
-                    lightImage.src = "light_off.png";
-                    buttonText.className = '';
-                    buttonText.innerHTML = "Turn On";
-                }
 				
-				if (data == '6') {
+				if (data == '9') {
 						temp_from_simblee = view.getUint8(1);
 						tempValue.innerHTML = temp_from_simblee;
 						humid_from_simblee = view.getUint8(2);
 						humidValue.innerHTML = humid_from_simblee;
 					}
-					
-				//if (data == '4') {
-						//humid_from_simblee = view.getUint8(3);
-						//humidValue.innerHTML = humid_from_simblee;
 					
 				
             };
