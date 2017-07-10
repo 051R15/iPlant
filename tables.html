@@ -1,13 +1,13 @@
 <html>
 
 	<head>
-        
-	</head>
-        
-<meta charset="utf-8" />
+       <meta charset="utf-8" />
+		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-    
+     
+   
+	</head>
     
     <style>
             
@@ -45,19 +45,47 @@ li a :hover {
 .active {
     background-color: #4CAF50;
 }
+        
+/* Change the link color to #111 (black) on hover */
+/*drop down bar*/
+        
+li a :hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+        
+ nav select {
+     display:none;
+} 
+        
+        @media (max-width: 700px) {
+            nav ul {display: none;}
+            nav select {display: inline-block;}
+        }   
     
     </style>
     
-   <body>  
+   <body>  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
        
-       
+ <!-- NavBar -->      
+   
+<nav>
+<div class = "NavBar"> 
 <ul class = "NavBarstyle">
-  <li><a href=index.html>Home</a></li>
-  <li><a href=tables.html class="active">Data</a></li>
-  <li><a href=contact.html>Contact</a></li>
-  <li><a href="#about">About</a></li>
+  <li class = header><a class="headerlink" href="index.html">Home</a></li>
+  <li class = header><a class = "active headerlink" href="tables.html">Data</a></li>
+  <li class = header><a class = "headerlink" href="contact.html">Contact</a></li>
+  <li class = header><a class = "headerlink"  href="about.html">About</a></li>
 </ul>
-
+</div>  
+</nav>
+       
+<body>
+       
 <!-- Five -->
 				
 				
@@ -155,6 +183,7 @@ li a :hover {
                             </TABLE>
                             </div>
 							</div>
+                        </section>
                         
                         <!-- Footer -->
 					<footer class="wrapper style1 align-center">
@@ -169,13 +198,18 @@ li a :hover {
 							<p>&copy; iPlant 2017. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 						</div>
 					</footer>
-       </section>
        
-    </body>
-    
+           
     <!--- Sripts --->
     
-    		<script type="text/javascript" src="SimbleeCloud.js"></script>
+    		<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="SimbleeCloud.js"></script>
 			<script type="text/javascript">
             
 			
@@ -209,6 +243,35 @@ li a :hover {
 					if(counterCO2 >= textCO2.length) { counterCO2 = 0; }
     }
 	
+                 // DROP DOWN MENU FOR MOBILE
+           
+   // Create the dropdown base
+                
+$("<select />").appendTo("nav");
+
+// Create default option "Go to..."
+$("<option />", {
+   "selected": "selected",
+   "value"   : "",
+   "text"    : "|||"
+   
+}).appendTo("nav select");
+
+// Populate dropdown with menu items
+$("nav a").each(function() {
+ var el = $(this);
+ $("<option />", {
+     "value"   : el.attr("href"),
+     "text"    : el.text()
+ }).appendTo("nav select");
+});
+            
+$("nav select").change(function() {
+  window.location = $(this).find("option:selected").val();
+});             
+                        
+                 
+		
 		
 			//var humid_from_simblee;
 			
@@ -271,7 +334,7 @@ li a :hover {
     
     
     
-    
+    </body>
     
 </html>
 
