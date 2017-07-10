@@ -110,26 +110,24 @@ li a :hover {
 					<section class="wrapper style1 align-center">
 						<div class="inner">
 						
-							<h2>Your Garden</h2>
+						<h2>Your Garden</h2>
 							<p>All your plant data. All in one place.</p>
 							<h3>Cloud Status: <span id="cloud_status" class="disconnected">Disconnected</span></h3>
-							<h3>Data Status: <span id="lamp_status" class="disconnected">Disconnected</span></h3>
+							<h3>Data Status: <span id="data_status" class="disconnected">Disconnected</span></h3>
 							<TABLE Align="center" Border="8" Width="300">
 							
 							<tr>
-							<th>Light</th>
+							<th>Light(cd)</th>
 							<th>Temperature (°C)</th>
 							<th>Humidity(%)</th>
 							<th>CO2(ppm)</th>
 							</tr>
 							
 							<tr>
-							<th id= "changeText">
-							</th>
-				
+							<th id = "light_value">no data available</th>
 							<th id= "temp_value">no data available</th>
 							<th id= "humid_value" >no data available</th> 
-							<th id= "CO2_value"></th>
+							<th id= "CO2_value">no data available</th>
 							</tr>
 	
 							</TABLE>
@@ -230,6 +228,7 @@ li a :hover {
 			<script type="text/javascript" src="SimbleeCloud.js"></script>
        
         <script>
+            
                function toggleFunction() {
     var x = document.getElementById("navDemo");
     if (x.className.indexOf("w3-show") == -1) {
@@ -238,48 +237,41 @@ li a :hover {
         x.className = x.className.replace(" w3-show", "");
     }
 }            
-       
-       
        </script>
        
-       
-			<script type="text/javascript">
+            <script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="SimbleeCloud.js"></script>
             
+       <script type="text/javascript">
 			
-			var cloudStatus = document.getElementById("cloud_status");
-            var lightStatus = document.getElementById("lamp_status");
-            var lightImage = document.getElementById("light");
+			
+	var cloudStatus = document.getElementById("cloud_status");
+            var dataStatus = document.getElementById("data_status");
             var button = document.getElementById("button");
             var buttonText = document.getElementById("button_text");
-			var tempValue = document.getElementById("temp_value");
+			
+			
+            var lightValue = document.getElementById("light_value");
+            var light_from_simblee;
+            var tempValue = document.getElementById("temp_value");
 			var temp_from_simblee;
-			var humidValue = document.getElementById("humid_value");
+            var humidValue = document.getElementById("humid_value");
+            var humid_from_simblee;
+            var CO2Value = document.getElementById("CO2_value");
+            var CO2_from_simblee;
 			
-			
-			var text = ["5238", "5116", "5226"];
-			var counter = 0;
-			var elem = document.getElementById("changeText");
-			setInterval(change, 1000);
-    		function change() {
-				elem.innerHTML = text[counter];
-					counter++;
-					if(counter >= text.length) { counter = 0; }
-    }
 	
-			var textCO2 = ["2645", "2742", "2465"];
-			var counterCO2 = 0;
-			var elemCO2 = document.getElementById("CO2_value");
-			setInterval(change2, 1000);
-    		function change2() {
-				elemCO2.innerHTML = textCO2[counterCO2];
-					counterCO2++;
-					if(counterCO2 >= textCO2.length) { counterCO2 = 0; }
-    }
 	
-                 // DROP DOWN MENU FOR MOBILE
+                 // DROP DOWN MENU FOR MOBILE (old)
            
    // Create the dropdown base
-                
+/*                
 $("<select />").appendTo("nav");
 
 // Create default option "Go to..."
@@ -302,22 +294,17 @@ $("nav a").each(function() {
 $("nav select").change(function() {
   window.location = $(this).find("option:selected").val();
 });             
-                        
-                 
-		
-		
-			//var humid_from_simblee;
-			
-			
-            var cloud = new SimbleeCloud();
+    */                    
+
+		var cloud = new SimbleeCloud();
             var destESN = 0xaebf5932; // enter your destination ESN here
             cloud.myESN = 0x60606060; // enter your pool ESN here
             cloud.userID = 0xe42532dd; // enter your user id here
             cloud.connect();
 
-            var lightDisconnected = setInterval(function() {
-                //lightStatus.className = "disconnected";
-                lightStatus.innerHTML = "Disconnected";
+            var dataDisconnected = setInterval(function() {
+                //dataStatus.className = "disconnected";
+                dataStatus.innerHTML = "Disconnected";
             }, 2000);
 
             setInterval(function() {
@@ -342,32 +329,88 @@ $("nav select").change(function() {
             };
 
             cloud.onrequest = function(originESN, payload) {
-                window.clearInterval(lightDisconnected);
-                lightDisconnected = setInterval(function() {
-                    //lightStatus.className = "disconnected";
-                    lightStatus.innerHTML = "Disconnected";
+                window.clearInterval(dataDisconnected);
+                dataDisconnected = setInterval(function() {
+                    //dataStatus.className = "disconnected";
+                    dataStatus.innerHTML = "Disconnected";
                 }, 1500);
                 var view = new DataView(payload);
                 var data = String.fromCharCode(view.getUint8(0));
-                //lightStatus.className = "connected";
-                lightStatus.innerHTML = "Connected";
-				
-				if (data == '9') {
-						temp_from_simblee = view.getUint8(1);
-						tempValue.innerHTML = temp_from_simblee;
-						humid_from_simblee = view.getUint8(2);
-						humidValue.innerHTML = humid_from_simblee;
+                //dataStatus.className = "connected";
+                dataStatus.innerHTML = "Connected";
+                
+/* This is where we link our values from the cloud*/
+                
+				/* Light data */
+                
+				if (data == '5') {
+						light_from_simblee = String.fromCharCode(view.getUint8(1));
+                    
+                        light_from_simblee += String.fromCharCode(view.getUint8(2));
+                    
+                        light_from_simblee += String.fromCharCode(view.getUint8(3));
+                    
+                        light_from_simblee += String.fromCharCode(view.getUint8(4));
+                    
+						lightValue.innerHTML = light_from_simblee;
+						
 					}
-					
-				
+
+                
+                 if (data== '6'){
+                     
+                        temp_from_simblee = String.fromCharCode(view.getUint8(1));
+                    
+                        temp_from_simblee += String.fromCharCode(view.getUint8(2));
+                    
+                        temp_from_simblee += String.fromCharCode(view.getUint8(3));
+                    
+                        temp_from_simblee += String.fromCharCode(view.getUint8(4));
+                    
+                        temp_from_simblee += String.fromCharCode(view.getUint8(5));
+                    
+						tempValue.innerHTML = temp_from_simblee;
+                
+                }
+                
+                 
+                 if (data == '7'){
+                     
+                    humid_from_simblee = String.fromCharCode(view.getUint8(1));
+                    
+                    humid_from_simblee += String.fromCharCode(view.getUint8(2));
+                    
+                    humid_from_simblee += String.fromCharCode(view.getUint8(3));
+                    
+                    humid_from_simblee += String.fromCharCode(view.getUint8(4));
+                    
+                    humid_from_simblee += String.fromCharCode(view.getUint8(5));
+                    
+                    humidValue.innerHTML = humid_from_simblee;    
+                    
+                }
+                
+
+                  if (data == '8'){
+                     CO2_from_simblee = String.fromCharCode(view.getUint8(1));
+				     CO2Value.innerHTML = CO2_from_simblee;
+                      
+                     CO2_from_simblee += String.fromCharCode(view.getUint8(2));
+				     CO2Value.innerHTML = CO2_from_simblee;
+                      
+                     CO2_from_simblee += String.fromCharCode(view.getUint8(3));
+				     CO2Value.innerHTML = CO2_from_simblee;
+                      
+                     CO2_from_simblee += String.fromCharCode (view.getUint8(4));
+                      
+				    
+                     CO2Value.innerHTML = CO2_from_simblee;
+                 } 
             };
 
 
         </script>
     
-    
-    
     </body>
     
 </html>
-
