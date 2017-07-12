@@ -12,6 +12,33 @@
 	</head>
     
     <style>
+        
+       
+.vertical-menu {
+    width: 200px; /* Set a width if you like */
+    height:auto;
+    position:relative;
+    top: 50px;
+    
+}
+
+.vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+   
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+}
             
 ul.NavBarstyle {
     list-style-type: none;
@@ -70,8 +97,51 @@ li a :hover {
         }   
     
     </style>
+    <header>
+      
+<div>
     
-   <body>  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<!--- your iPlant subsection--->
+    
+    
+<div class="vertical-menu">
+  <h3 style="color:black">Your iPlant</h3>
+  <a href="useraccount.html">Home</a>
+  <a href="usertables.html" class="active">View Your iPlant</a>
+  <a href="usertables.html">Temperature</a>
+  <a href="#">Humidity</a>
+  <a href="#">Light</a>
+  <a href="#">CO2</a>
+  <a href="#">History</a>
+  </div>
+    
+<!--- manage account subsection--->
+    
+    
+<div class="vertical-menu">
+  <h3 style="color:black">Manage Account</h3>
+  <a href="#">Add an iPlant</a>
+  <a href="#">Settings</a>
+</div>
+
+        
+
+<!--- support subsection--->
+    
+    
+<div class="vertical-menu">
+  <h3 style="color:black">Support</h3>
+  <a href="#">Forum</a>
+  <a href="usertables.html">FAQ</a>
+</div>
+
+        </div>
+    </header>
+
+    
+   <body>  
+       
+       <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
        
  <!-- NavBar -->      
    
@@ -85,11 +155,11 @@ li a :hover {
     </a>
       
    <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab">Home</a>
-    <a href="tables.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab active"> Data</a>
+    <a href="tables.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab "> Data</a>
     <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar myTab w3-padding-large" > Contact</a>
     <a href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab"> About</a>
     <a href="login.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab "> Log In </a>
-    <a href="useraccount.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab "> Your Account </a>
+    <a href="useraccount.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab active "> Your Account </a>
 
   </div>
 
@@ -133,73 +203,7 @@ li a :hover {
 							</tr>
 	
 							</TABLE>
-							
-							<h2>Your Ideal Garden Range</h2>
-                            
-                            
-                            <div style="overflow-x: scroll">
-							<TABLE Align="center" Border="2" Width="600" Class = "TableFont">
-
-							<tr>
-							<th Align = "center">Plants</th>
-							<th Align = "center">Light</th>
-							<th Align = "center">Temperature (°C)</th>
-							<th Align = "center">Humidity(%)</th>
-							<th Align = "center">CO2(ppm)</th>
-							
-							</tr>
-							
-							<tr>
-							<th Align = "center">Aloe Vera</th>
-							<th Align = "center">high, direct sunlight</th>
-							<th Align = "center">10-40</th>
-							<th Align = "center">10-70</th>
-							<th Align = "center">400 - 1500</th>
-							<tr>
-							
-							<tr>
-							<th Align = "center">Orchid</th>
-							<th Align = "center">low/medium, behind curtains</th>
-							<th Align = "center">7-30</th>
-							<th Align = "center">50-70</th>
-							<th Align = "center">200 - 1200</th>
-							<tr>
-							
-							<tr>
-							<th Align = "center">Tulip</th>
-							<th Align = "center">high, direct sunlight</th>
-							<th Align = "center">13-18</th>
-							<th Align = "center">65-90</th>
-							<th Align = "center">300 - 1750</th>
-							<tr>
-							
-							<tr>
-							<th Align = "center">Fern</th>
-							<th Align = "center">low/medium, indirect sunlight</th>
-							<th Align = "center">20-27</th>
-							<th Align = "center">70-90</th>
-							<th Align = "center">400 - 1500</th>
-							<tr>
-							
-							<tr>
-							<th Align = "center">Cactus</th>
-							<th Align = "center">high, direct sunlight</th>
-							<th Align = "center">7-30</th>
-							<th Align = "center">10-60</th>
-							<th Align = "center">400 - 1500</th>
-							<tr>
-							
-							<tr>
-							<th Align = "center">Ficus</th>
-							<th Align = "center">medium, indirect light</th>
-							<th Align = "center">21-29</th>
-							<th Align = "center">70-90</th>
-							<th Align = "center">400 - 1500</th>
-							<tr>
-							
-                           
-                            </TABLE>
-                            </div>
+	
 							</div>
                         </section>
                         
