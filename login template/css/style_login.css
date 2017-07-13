@@ -22,7 +22,7 @@ a:hover {
 }
 
 .form {
-  background: rgba(19, 35, 47, 0.9);
+  background: #fff;
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
@@ -55,13 +55,20 @@ a:hover {
   transition: .5s ease;
 }
 .tab-group li a:hover {
-  background: #179b77;
+  background: #93D79A;
   color: #ffffff;
 }
 .tab-group .active a {
+<<<<<<< HEAD
   background: #1ab188;
   
+=======
+  background: #4CAF50;
+  color: #ffffff;
+>>>>>>> 55f92cb5c6f7a75be3964f4e5286352c1457976f
 }
+
+
 
 .tab-content > div:last-child {
   display: none;
@@ -91,18 +98,28 @@ label .req {
   color: #1ab188;
 }
 
-label.active {
+label.formActive {
   -webkit-transform: translateY(50px);
           transform: translateY(50px);
   left: 2px;
   font-size: 14px;
 }
+<<<<<<< HEAD
 label.active .req {
   
 }
 
 label.highlight {
   color: grey;
+=======
+
+label .formActive .req {
+  opacity: 0;
+}
+
+label.highlight {
+  
+>>>>>>> 55f92cb5c6f7a75be3964f4e5286352c1457976f
 }
 
 input, textarea {
