@@ -60,7 +60,7 @@ a:hover {
 }
 .tab-group .active a {
   background: #1ab188;
-  color: #ffffff;
+  
 }
 
 .tab-content > div:last-child {
@@ -98,11 +98,11 @@ label.active {
   font-size: 14px;
 }
 label.active .req {
-  opacity: 0;
+  
 }
 
 label.highlight {
-  color: #ffffff;
+  color: grey;
 }
 
 input, textarea {
@@ -170,6 +170,7 @@ textarea {
 .button-block {
   display: block;
   width: 100%;
+    align-content: center;
 }
 
 .forgot {

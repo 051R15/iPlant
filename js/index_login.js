@@ -3,26 +3,26 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
   var $this = $(this),
       label = $this.prev('label');
 
- if (e.type === 'keyup') {
-if ($this.val() === '') {
-          label.removeClass('.formActive highlight');
+	  if (e.type === 'keyup') {
+			if ($this.val() === '') {
+          label.removeClass('active highlight');
         } else {
-          label.addClass('formActive highlight');
+          label.addClass('active highlight');
         }
     } else if (e.type === 'blur') {
-    if( $this.val() === '' ) {
-    label.removeClass('formActive highlight'); 
-} else {
-   label.removeClass('highlight');   
-}   
+    	if( $this.val() === '' ) {
+    		label.removeClass('active highlight'); 
+			} else {
+		    label.removeClass('highlight');   
+			}   
     } else if (e.type === 'focus') {
       
       if( $this.val() === '' ) {
-    label.removeClass('highlight'); 
-} 
+    		label.removeClass('highlight'); 
+			} 
       else if( $this.val() !== '' ) {
-   label.addClass('highlight');
-}
+		    label.addClass('highlight');
+			}
     }
 
 });
@@ -31,8 +31,8 @@ $('.tab a').on('click', function (e) {
   
   e.preventDefault();
   
-  $(this).parent().addClass('formActive');
-  $(this).parent().siblings().removeClass('formActive');
+  $(this).parent().addClass('active');
+  $(this).parent().siblings().removeClass('active');
   
   target = $(this).attr('href');
 
@@ -41,4 +41,3 @@ $('.tab a').on('click', function (e) {
   $(target).fadeIn(600);
   
 });
- 
