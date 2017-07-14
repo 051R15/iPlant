@@ -1,27 +1,40 @@
-<!DOCTYPE HTML>
-<!--- Original code with scroll bar for table --->
-<!--
-	Story by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-
-<!
-
-<html>
-	<head>
-
-		<title>iPlantHome</title>
-		<meta charset="utf-8" />
+<html> 
+    <head>
+        <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="assets/css/main.css" />
         <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-        
+    </head>
+    
+     <style>
+         
+         
+.vertical-menu {
+    width: 200px; /* Set a width if you like */
+    height:auto;
+    align-content: center;
+    top: 50px;
+    
+}
 
-	</head>
-	
-    <style>
+.vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+   
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+}
             
 ul.NavBarstyle {
     list-style-type: none;
@@ -50,15 +63,6 @@ li.icons a {
         
         
 /* Change the link color to #111 (black) on hover */
-li a :hover {
-    background-color: #111;
-}
-
-.active {
-    background-color: #4CAF50;
-}
-        
-/* Change the link color to #111 (black) on hover */
 /*drop down bar*/
         
 li a :hover {
@@ -69,35 +73,20 @@ li a :hover {
     background-color: #4CAF50;
 }
 
-        
  nav select {
      display:none;
-} 
+}
         
         @media (max-width: 700px) {
             nav ul {display: none;}
             nav select {display: inline-block;}
         }   
-    
+        
+        
     </style>
     
 
-<!-- NavBar (old)     
-   
-<nav>
-<div class = "NavBar"> 
-<ul class = "NavBarstyle">
-  <li class = header><a class="active headerlink" href="index.html">Home</a></li>
-  <li class = header><a class = "headerlink" href="tables.html">Data</a></li>
-  <li class = header><a class = "headerlink" href="contact.html">Contact</a></li>
-  <li class = header><a class = "headerlink"  href="about.html">About</a></li>
-</ul>
-</div>  
-</nav>
--->  	
-
-      
-<!-- NavBar new -->
+   <!-- NavBar new -->
    <div class="w3-top topNavBar">
     
   <div class="w3-bar w3-black" id="myNavbar">
@@ -106,15 +95,16 @@ li a :hover {
       <i class="fa fa-bars"></i>
     </a>
       
-    <!-- NavBar --> 
-   <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab active">Home</a>
+  <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab ">Home</a>
     <a href="tables.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab"> Data</a>
     <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar myTab w3-padding-large" > Contact</a>
     <a href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab"> About</a>
     <a href="login.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab "> Log In </a>
-    <a href="useraccount.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab "> Your Account </a>
+    <a href="useraccount.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab active "> Your Account </a>
+	
 
   </div>
+
 
   <!-- Navbar on small screens --> 
   <div id="navDemo" class="w3-bar-block w3-mobile w3-black w3-hide w3-hide-large">
@@ -124,59 +114,46 @@ li a :hover {
     <a href="about.html" class="w3-bar-item w3-button" onclick="toggleFunction()">About</a>
     <a href="login.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Log In</a>
     <a href="useraccount.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Your Account</a>
- 
-  </div>
 
-    
+       </div>
+
+</div>  
+    <section class="wrapper style1 align-center">
+        
+            <div class="w3-row w3-padding-64">
+            
+                    <div class="w3-col w3-padding-32" style="width:250px">
+                    <div class="vertical-menu">  
+                      <h3 style="color:black">Your iPlant</h3>
+                      <a href="useraccount.html" >Home</a>
+                      <a href="history.html">History</a>
+                      </div>
+
+                    <!--- manage account subsection--->
 
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="divided">
+                    <div class="vertical-menu">
+                      <h3 style="color:black">Manage Account</h3>
+                      <a href="addiplant.html">Add an iPlant</a>
+                      <a href="settings.html" class="active">Account Settings</a>
+                    </div>
 
-				<!-- One -->
-					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-						<div class="content">
-							<h1>iPlant</h1>
-							<h2>Gardening Revolutionized</h2>
-							<p class="major"> An original and innovative idea, realized by three young engineers; Monitor the environment of your plants with one simple press of a button. Available online and for mobile!</p>
-							<ul class="actions vertical">
-								<li><a href="#first" class="button big wide smooth-scroll-middle">Learn More</a></li>
-							</ul>
-						</div>
-						<div class="image">
-							<img src="images/iPlantLogo2.JPG" alt="" />
-						</div>
-					</section>
 
-				<!-- Two -->
-					<section class="banner style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id = "first">
-						<div class="content">
-							<h2>The Idea</h2>
-							<p class="major">It all started one fatefull evening during an internship at Heptagon, an advanced micro optics and technology company. The idea became a reality at the end of a 24 hour "Hackathon"... </p>
-							<ul class="actions vertical">
-								<li><a href="#second" class="button big wide smooth-scroll-middle">Learn More</a></li>
-							</ul>
-						</div>
-						<div class="image">
-							<img src="images/plant1.jpg" alt="" />
-						</div>
-					</section>
 
-				<!-- Three -->
-					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id = "second">
-						<div class="content">
-							<h2>The Execution</h2>
-							<p>First the idea was formed, then we laboured through the night, and finally iPlant was born.</p>							
-							<ul class="actions vertical">
-								<li><a href="#" class="button big wide smooth-scroll-middle">Back to Top</a></li>
-							</ul>
-						</div>
-						<div class="image">
-							<img src="images/plant2.jpg" alt="" />
-						</div>
-					</section>
+                    <!--- support subsection--->
 
-			  <!-- Footer -->
+
+                    <div class="vertical-menu">
+                      <h3 style="color:black">Support</h3>
+                      <a href="forum.html">Forum</a>
+                      <a href="faq.html">FAQ</a>
+                    </div>
+                </div>
+				</div>
+				
+				
+				</section>
+    <!-- Footer -->
 					<footer class="wrapper style1 align-center">
 						<div class="inner"> 
 							<ul class="icons" style = "display: inline-block;">
@@ -189,12 +166,8 @@ li a :hover {
 							<p>&copy; iPlant 2017. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 						</div>
 					</footer>
-
-			</div>
-
-		 <!--- Sripts --->
-    
-    		<script src="assets/js/jquery.min.js"></script>
+<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
@@ -202,18 +175,18 @@ li a :hover {
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script type="text/javascript" src="SimbleeCloud.js"></script>
-       
-        <script>
-            
-               function toggleFunction() {
+			<script type="text/javascript">
+       	
+// NEW drop down menu
+    function toggleFunction() {
     var x = document.getElementById("navDemo");
     if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
     } else {
         x.className = x.className.replace(" w3-show", "");
     }
-}            
-       </script>  
-    </div>
-
+}                   
+     
+         
+  </script>
 </html>

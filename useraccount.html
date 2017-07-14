@@ -123,12 +123,11 @@ li a :hover {
         
             <div class="w3-row w3-padding-64">
             
-                                    <div class="w3-col w3-padding-32" style="width:250px">
-                                    <div class="vertical-menu">  
+                    <div class="w3-col w3-padding-32" style="width:250px">
+                    <div class="vertical-menu">  
                       <h3 style="color:black">Your iPlant</h3>
                       <a href="useraccount.html" class="active">Home</a>
-
-                      <a href="#">History</a>
+                      <a href="history.html">History</a>
                       </div>
 
                     <!--- manage account subsection--->
@@ -136,8 +135,8 @@ li a :hover {
 
                     <div class="vertical-menu">
                       <h3 style="color:black">Manage Account</h3>
-                      <a href="#">Add an iPlant</a>
-                      <a href="#">Account Settings</a>
+                      <a href="addiplant.html">Add an iPlant</a>
+                      <a href="settings.html">Account Settings</a>
                     </div>
 
 
@@ -147,13 +146,11 @@ li a :hover {
 
                     <div class="vertical-menu">
                       <h3 style="color:black">Support</h3>
-                      <a href="#">Forum</a>
-                      <a href="usertables.html">FAQ</a>
+                      <a href="forum.html">Forum</a>
+                      <a href="faq.html">FAQ</a>
                     </div>
-
-                
-                
                 </div>
+                
                  <div class="w3-rest w3-padding-32">
                   <h1 class = "header1" align="center">Your iPlant Account</h1>
     <h3 class = "header3" align="center">Welcome [content: username]</h3>
@@ -209,8 +206,9 @@ li a :hover {
 							<p>&copy; iPlant 2017. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 						</div>
 					</footer>
-<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
+ <!--- Sripts --->
+    
+    		<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
@@ -218,18 +216,180 @@ li a :hover {
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script type="text/javascript" src="SimbleeCloud.js"></script>
-			<script type="text/javascript">
-       	
-// NEW drop down menu
-    function toggleFunction() {
+       
+        <script>
+            
+               function toggleFunction() {
     var x = document.getElementById("navDemo");
     if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
     } else {
         x.className = x.className.replace(" w3-show", "");
     }
-}                   
-     
-         
-  </script>
+}            
+       </script>
+       
+            
+		<script>	
+			
+	var cloudStatus = document.getElementById("cloud_status");
+            var dataStatus = document.getElementById("data_status");
+            var button = document.getElementById("button");
+            var buttonText = document.getElementById("button_text");
+			
+			
+            var lightValue = document.getElementById("light_value");
+            var light_from_simblee;
+            var tempValue = document.getElementById("temp_value");
+			var temp_from_simblee;
+            var humidValue = document.getElementById("humid_value");
+            var humid_from_simblee;
+            var CO2Value = document.getElementById("CO2_value");
+            var CO2_from_simblee;
+			
+	
+	
+                 // DROP DOWN MENU FOR MOBILE (old)
+           
+   // Create the dropdown base
+/*                
+$("<select />").appendTo("nav");
+
+// Create default option "Go to..."
+$("<option />", {
+   "selected": "selected",
+   "value"   : "",
+   "text"    : "|||"
+   
+}).appendTo("nav select");
+
+// Populate dropdown with menu items
+$("nav a").each(function() {
+ var el = $(this);
+ $("<option />", {
+     "value"   : el.attr("href"),
+     "text"    : el.text()
+ }).appendTo("nav select");
+});
+            
+$("nav select").change(function() {
+  window.location = $(this).find("option:selected").val();
+});             
+    */                    
+
+		var cloud = new SimbleeCloud();
+            var destESN = 0xaebf5932; // enter your destination ESN here
+            cloud.myESN = 0x60606060; // enter your pool ESN here
+            cloud.userID = 0xe42532dd; // enter your user id here
+            cloud.connect();
+
+            var dataDisconnected = setInterval(function() {
+                //dataStatus.className = "disconnected";
+                dataStatus.innerHTML = "Disconnected";
+            }, 2000);
+
+            setInterval(function() {
+                var payload = new ArrayBuffer(1);
+                var view = new DataView(payload);
+                view.setUint8(0, "2".charCodeAt(0));
+                cloud.send(destESN, payload);
+            }, 1000);
+
+            cloud.onactive = function() {
+                //cloudStatus.className = "connected";
+                cloudStatus.innerHTML = "Connected";
+                var payload = new ArrayBuffer(1);
+                var view = new DataView(payload);
+                view.setUint8(0, "2".charCodeAt(0));
+                cloud.send(destESN, payload);
+            };
+
+            cloud.oninactive = function() {
+                //cloudStatus.className = "disconnected";
+                cloudStatus.innerHTML = "Disconnected";
+            };
+
+            cloud.onrequest = function(originESN, payload) {
+                window.clearInterval(dataDisconnected);
+                dataDisconnected = setInterval(function() {
+                    //dataStatus.className = "disconnected";
+                    dataStatus.innerHTML = "Disconnected";
+                }, 1500);
+                var view = new DataView(payload);
+                var data = String.fromCharCode(view.getUint8(0));
+                //dataStatus.className = "connected";
+                dataStatus.innerHTML = "Connected";
+                
+/* This is where we link our values from the cloud*/
+                
+				/* Light data */
+                
+				if (data == '5') {
+						light_from_simblee = String.fromCharCode(view.getUint8(1));
+                    
+                        light_from_simblee += String.fromCharCode(view.getUint8(2));
+                    
+                        light_from_simblee += String.fromCharCode(view.getUint8(3));
+                    
+                        light_from_simblee += String.fromCharCode(view.getUint8(4));
+                    
+						lightValue.innerHTML = light_from_simblee;
+						
+					}
+
+                
+                 if (data== '6'){
+                     
+                        temp_from_simblee = String.fromCharCode(view.getUint8(1));
+                    
+                        temp_from_simblee += String.fromCharCode(view.getUint8(2));
+                    
+                        temp_from_simblee += String.fromCharCode(view.getUint8(3));
+                    
+                        temp_from_simblee += String.fromCharCode(view.getUint8(4));
+                    
+                        temp_from_simblee += String.fromCharCode(view.getUint8(5));
+                    
+						tempValue.innerHTML = temp_from_simblee;
+                
+                }
+                
+                 
+                 if (data == '7'){
+                     
+                    humid_from_simblee = String.fromCharCode(view.getUint8(1));
+                    
+                    humid_from_simblee += String.fromCharCode(view.getUint8(2));
+                    
+                    humid_from_simblee += String.fromCharCode(view.getUint8(3));
+                    
+                    humid_from_simblee += String.fromCharCode(view.getUint8(4));
+                    
+                    humid_from_simblee += String.fromCharCode(view.getUint8(5));
+                    
+                    humidValue.innerHTML = humid_from_simblee;    
+                    
+                }
+                
+
+                  if (data == '8'){
+                     CO2_from_simblee = String.fromCharCode(view.getUint8(1));
+				     CO2Value.innerHTML = CO2_from_simblee;
+                      
+                     CO2_from_simblee += String.fromCharCode(view.getUint8(2));
+				     CO2Value.innerHTML = CO2_from_simblee;
+                      
+                     CO2_from_simblee += String.fromCharCode(view.getUint8(3));
+				     CO2Value.innerHTML = CO2_from_simblee;
+                      
+                     CO2_from_simblee += String.fromCharCode (view.getUint8(4));
+                      
+				    
+                     CO2Value.innerHTML = CO2_from_simblee;
+                 } 
+            };
+
+
+        </script>
+    
 </html>
