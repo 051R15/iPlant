@@ -5,6 +5,9 @@ Simblee_CCS811 CCS811;
 
 char payload[5];
 
+long initialTime = 0;
+long resetTime = 300000;
+
 void setup() {
   Serial.begin(115200);
   delay(100);
@@ -20,6 +23,14 @@ void setup() {
 }
 
 void loop() {
+
+  unsigned long currentMillis = millis();
+  
+  if (currentMillis - initialTime > resetTime){
+    initialTime = currentMillis;
+    Serial.println("Simblee System Reset!");
+    Simblee_systemReset();
+  }
 
   float ECO2;
   ECO2 = CCS811.readECO2();

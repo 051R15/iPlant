@@ -75,7 +75,7 @@ float humCheck;
 uint16_t CO2Check;
 
 long initialTime = 0;
-long resetTime = 30000;
+long resetTime = 300000;
 
 void setup() {
   Serial.begin(115200);
@@ -98,8 +98,8 @@ void setup() {
   valueC[5] = '\0';
   valueD[4] = '\0';
 
-  SimbleeForMobile.deviceName = "Problem";
-  SimbleeForMobile.advertisementData = "Solver";
+  SimbleeForMobile.deviceName = "iPlant";
+  SimbleeForMobile.advertisementData = "forMobile";
 
   Serial.print("The ESN of my Simblee is 0x");
   Serial.println(cloud.myESN, HEX);
@@ -171,9 +171,9 @@ void loop() {
     initialTime = currentMillis;
     Serial.println("Simblee System Reset!");
     Simblee_systemReset();
-  }
-  
-  
+    SimbleeForMobile.begin();
+    SimbleeForMobile.process();
+  }  
   
   //Send a staggered signal to the sensors
   SimbleeCOM.send(signalBLE, 2);
