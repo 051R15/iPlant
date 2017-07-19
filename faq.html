@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html> 
     <head>
         <meta charset="utf-8" />
@@ -86,6 +87,7 @@ li a :hover {
     </style>
     
 
+  
    <!-- NavBar new -->
    <div class="w3-top topNavBar">
     
@@ -95,28 +97,23 @@ li a :hover {
       <i class="fa fa-bars"></i>
     </a>
       
-  <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab ">Home</a>
-    <a href="tables.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab"> Data</a>
-    <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar myTab w3-padding-large" > Contact</a>
+   <!-- NavBar --> 
+   <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab">Home</a>
     <a href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab"> About</a>
-    <a href="login.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab "> Log In </a>
-    <a href="useraccount.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab active "> Your Account </a>
-	
+    <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar myTab w3-padding-large" > Contact</a>
+    <a href="login.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab active"> Account </a>
 
   </div>
-
+    
 
   <!-- Navbar on small screens --> 
   <div id="navDemo" class="w3-bar-block w3-mobile w3-black w3-hide w3-hide-large">
     <a href="index.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Home</a>
-    <a href="tables.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Data</a>
-    <a href="contact.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
     <a href="about.html" class="w3-bar-item w3-button" onclick="toggleFunction()">About</a>
-    <a href="login.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Log In</a>
-    <a href="useraccount.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Your Account</a>
-
-       </div>
-
+    <a href="contact.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
+    <a href="login.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Account</a>
+ 
+  </div>
 </div>  
     <section class="wrapper style1 align-center">
         
@@ -146,28 +143,61 @@ li a :hover {
                     <div class="vertical-menu">
                       <h3 style="color:black">Support</h3>
                       <a href="forum.html">Forum</a>
-                      <a href="faq.html" class="active">FAQ</a>
+                      <a href="faq.html"  class="active">FAQ</a>
                     </div>
                 </div>
-				</div>
-				
-				
-				</section>
-    <!-- Footer -->
+                
+                <!--- FAQ questions --->
+                
+    <div class="w3-rest w3-padding-32">
+    <h1 class = "header1" align="center">FAQ</h1>
+        
+    <h3 class = "header3" align="center">Can I use my iPlant for multiple plants?</h3>
+    <p style="color:black" align="center">iPlant was designed for use with one plant in particular. While iPlant could be used for multiple plants simultaneously, this will likely not yield optimal results. For best results, we recommend using one iPlant per plant you wish to monitor. Additional iPlants can be added on our website under the “Your Account” tab. On the menu, under ‘manage account’, select the “Add an iPlant” option and enter the destESN of your additional iPlant(s). </p>
+        
+    <h3 class = "header3" align="center">Where can I find my iPlant code?</h3>
+    <p style="color:black" align="center">Your iPlant code is located on the bottom of your iPlant. It should be as your iPlant code, and is a mix of number and letters, containing 8 digits in total. This is what you enter when you are registering for your iPlant account.</p>
+        
+    <h3 class = "header3" align="center">How do I charge my iPlant?</h3>
+    <p style="color:black" align="center">For the mobility of the iPlant, and for your convenience, the iPlant runs on AAA batteries that should be replaced bimonthly or as needed.</p>
+        
+    <h3 class = "header3" align="center">How do I download the iPlant mobile app? </h3>
+    <p style="color:black" align="center">Currently, the iPlant mobile app runs within a second application. To download the iPlant app, simply follow these steps:
+1.	In the app store, or the google play store, download “Simblee”. 
+2.	After successful installation of the Simblee app, turn on Bluetooth on your device. 
+3.	Within the Simblee app, a text will pop up that says "iPlant mobile app"
+4. Press on the iPlant mobile app to viewe your data. Remember to keep bluetooth enabled.
+</p>
+        
+    <h3 class = "header3" align="center">Is there a warranty?</h3>
+    <p style="color:black" align="center">The iPlant does not come with any sort of warranty. Contact our helpine if you require assistance or send us an email under the "Contact" tab.</p>
+        
+    <h3 class = "header3" align="center">What happens to my iPlant data?</h3>
+    <p style="color:black" align="center">Your iPlant data is stored in our database. All of your data, both that from the sensors in your iPlant and the information you volunteer to us is hashed; it is protected against potential online attacks.</p>
+        
+    <h3 class = "header3" align="center">Where can I change my password?</h3>
+    <p style="color:black" align="center">You can change your password under the “Account” Tab. In the side menu, select the ‘account settings’ tab. Here you will be able to change your password and update other account settings.</p>
+
+                </div>
+        </div>
+        
+    </section>
+     <!-- Footer -->
 					<footer class="wrapper style1 align-center">
 						<div class="inner"> 
 							<ul class="icons" style = "display: inline-block;">
-								<li class = "icons"><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-								<li class = "icons"><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-								<li class = "icons"><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-								<li class = "icons"><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
-								<li class = "icons"><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+								<li class = "icons"><a href="https://twitter.com/iPlantTeam" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li class = "icons"><a href="https://www.facebook.com/Plant-Team-1770541762960314/" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li class = "icons"><a href="https://www.instagram.com/iplantteam/" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li class = "icons"><a href="https://www.linkedin.com/in/iplant-team-722687147/" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li class = "icons"><a href="email.html" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
 							</ul>
 							<p>&copy; iPlant 2017. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 						</div>
 					</footer>
-<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
+ <!--- Sripts --->
+    
+    		<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
@@ -175,18 +205,16 @@ li a :hover {
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script type="text/javascript" src="SimbleeCloud.js"></script>
-			<script type="text/javascript">
-       	
-// NEW drop down menu
-    function toggleFunction() {
+       
+        <script>
+            
+               function toggleFunction() {
     var x = document.getElementById("navDemo");
     if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
     } else {
         x.className = x.className.replace(" w3-show", "");
     }
-}                   
-     
-         
-  </script>
-</html>
+}            
+       </script>
+    </html>
