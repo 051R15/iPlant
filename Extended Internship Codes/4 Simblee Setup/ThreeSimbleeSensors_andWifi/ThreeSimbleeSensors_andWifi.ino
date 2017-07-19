@@ -75,7 +75,7 @@ float humCheck;
 uint16_t CO2Check;
 
 long initialTime = 0;
-long resetTime = 300000;
+long resetTime = 90000;
 
 void setup() {
   Serial.begin(115200);
