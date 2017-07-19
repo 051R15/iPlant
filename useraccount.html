@@ -82,10 +82,12 @@ li a :hover {
             nav ul {display: none;}
             nav select {display: inline-block;}
         }   
-        
+         
         
     </style>
     
+     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"><link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+       
 
    <!-- NavBar new -->
    <div class="w3-top topNavBar">
@@ -119,9 +121,10 @@ li a :hover {
        </div>
 
 </div>  
+    
     <section class="wrapper style1 align-center">
         
-            <div class="w3-row w3-padding-64">
+            <div class="w3-row w3-padding-64 ">
             
                     <div class="w3-col w3-padding-32" style="width:250px">
                     <div class="vertical-menu">  
@@ -151,6 +154,31 @@ li a :hover {
                     </div>
                 </div>
                 
+                <!-- NavMenu on mobile --> 
+                
+    <div class="w3-side sideNavBar">
+    
+  <div class="w3-bar w3-black" id="myNavbar2">
+      
+       <a class="w3-bar-item w3-button w3-hover-black  w3-hide-large w3-left" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+
+  <div id="navDemo2" class="w3-bar-block w3-mobile w3-black w3-hide w3-hide-large">
+    <a href="useraccount.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Home</a>
+    <a href="history.html" class="w3-bar-item w3-button" onclick="toggleFunction()">History</a>
+    <a href="addiplant.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Add an iPlant</a>
+    <a href="settings.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Account Settings</a>
+    <a href="forum.html" class="w3-bar-item w3-button" 
+    onclick="toggleFunction()">Forum</a>
+    <a href="faq.html" class="w3-bar-item w3-button" onclick="toggleFunction()">FAQ</a>
+      
+      </div>
+        </div>
+       </div>
+
+    
+                
                  <div class="w3-rest w3-padding-32">
                   <h1 class = "header1" align="center">Your iPlant Account</h1>
     <h3 class = "header3" align="center">Welcome [content: username]</h3>
@@ -167,8 +195,10 @@ li a :hover {
 							<p style=color:black >All your plant data. All in one place.</p>
 							<h3 class="header3data">Cloud Status: <span id="cloud_status" class="disconnected">Disconnected</span></h3>
 							<h3 class="header3data">Data Status: <span id="data_status" class="disconnected">Disconnected</span></h3>
-							<TABLE Align="center" Border="8" Width="300" class = "table">
 							
+                            <div style="overflow-x: scroll">
+							<TABLE Align="center" Border="2" Width="600" Class = "TableFont"> 
+                            
 							<tr>
 							<th>Light(cd)</th>
 							<th>Temperature (°C)</th>
@@ -184,7 +214,7 @@ li a :hover {
 							</tr>
 	
 							</TABLE>
-	
+                            </div>
 							</div>
                 
                 
@@ -249,35 +279,6 @@ li a :hover {
             var CO2Value = document.getElementById("CO2_value");
             var CO2_from_simblee;
 			
-	
-	
-                 // DROP DOWN MENU FOR MOBILE (old)
-           
-   // Create the dropdown base
-/*                
-$("<select />").appendTo("nav");
-
-// Create default option "Go to..."
-$("<option />", {
-   "selected": "selected",
-   "value"   : "",
-   "text"    : "|||"
-   
-}).appendTo("nav select");
-
-// Populate dropdown with menu items
-$("nav a").each(function() {
- var el = $(this);
- $("<option />", {
-     "value"   : el.attr("href"),
-     "text"    : el.text()
- }).appendTo("nav select");
-});
-            
-$("nav select").change(function() {
-  window.location = $(this).find("option:selected").val();
-});             
-    */                    
 
 		var cloud = new SimbleeCloud();
             var destESN = 0xaebf5932; // enter your destination ESN here
