@@ -6,7 +6,7 @@ Simblee_CCS811 CCS811;
 char payload[5];
 
 long initialTime = 0;
-long resetTime = 300000;
+long resetTime = 60000;
 
 void setup() {
   Serial.begin(115200);

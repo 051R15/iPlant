@@ -4,6 +4,7 @@
 #include <SimbleeWiFi.h>
 #include <SimbleeWiFiSSLClient.h>
 #include <SimbleeCloud.h>
+#include "plant_jpg.h"
 
 //SimbleeCloud ESNs
 unsigned int userId = 0xe42532dd;
@@ -75,7 +76,9 @@ float humCheck;
 uint16_t CO2Check;
 
 long initialTime = 0;
-long resetTime = 90000;
+long resetTime = 2000;
+
+int counter = 0;
 
 void setup() {
   Serial.begin(115200);
@@ -169,11 +172,14 @@ void loop() {
   
   if (currentMillis - initialTime > resetTime){
     initialTime = currentMillis;
-    Serial.println("Simblee System Reset!");
-    Simblee_systemReset();
-    SimbleeForMobile.begin();
-    SimbleeForMobile.process();
-  }  
+    counter = ++ counter;
+    Serial.print("Counter: ");
+    Serial.println(counter);
+    Serial.println();
+    //Serial.println("Simblee System Reset!");
+    //Simblee_systemReset();
+  }
+
   
   //Send a staggered signal to the sensors
   SimbleeCOM.send(signalBLE, 2);
@@ -188,6 +194,7 @@ void loop() {
   lightValue[4] = valueA[3];
   lightValue[5] = valueA[4];
   cloud.send(destESN, lightValue, sizeof(lightValue));
+  //counter = ++counter;
 
   //Temperature Array:
   temperatureValue[0] = '6';
@@ -255,6 +262,12 @@ void loop() {
     whatHappens7();
   }
 
+  
+  if (counter >= 15){
+    Serial.println("RESET INITIATED");
+    Simblee_systemReset();  
+  }
+  
   SimbleeForMobile.process();
   cloud.process();
 }
@@ -269,13 +282,20 @@ void SimbleeForMobile_onDisconnect () {
 }
 
 void ui() {
+  #define IMAGE1 1
+  #define IMAGE2 2
   SimbleeForMobile.beginScreen(WHITE, PORTRAIT);
+
+  //imageSource for image
+  SimbleeForMobile.imageSource(IMAGE1, JPG, plant_jpg, plant_jpg_len);
+  //draw Image
+  SimbleeForMobile.drawImage(IMAGE1, 80, 280);
 
   //Login Screen
   iPlant = SimbleeForMobile.drawText(105, 30, "iPlant", BLACK, 50);
   forMobile = SimbleeForMobile.drawText(120, 80, "For Mobile", BLACK, 20);
   loginText = SimbleeForMobile.drawText(145, 510, "Login", BLACK, 10);
-  welcomeMessage = SimbleeForMobile.drawText(100, 350, "Welcome back!", BLACK, 20);
+  welcomeMessage = SimbleeForMobile.drawText(100, 250, "Welcome back!", BLACK, 20);
   enterName = SimbleeForMobile.drawText(60, 180, "Enter your username here: ", BLACK, 15);
   userName = SimbleeForMobile.drawTextField(60, 200, 200, "", "Username: ", BLACK, WHITE);
   AtoB = SimbleeForMobile.drawButton(200, 500, 100, "NEXT", BOX_TYPE);
@@ -490,6 +510,7 @@ void showScreenB() {
     SimbleeForMobile.setVisible(enterName, false);
     SimbleeForMobile.setVisible(userName, false);
     SimbleeForMobile.setVisible(AtoB, false);
+    SimbleeForMobile.setVisible(IMAGE1, false);
   }
 }
 
@@ -532,6 +553,8 @@ void showScreenA() {
     SimbleeForMobile.setVisible(greenText, false);
     SimbleeForMobile.setVisible(redText, false);
     SimbleeForMobile.setVisible(contactText, false);
+    SimbleeForMobile.setVisible(IMAGE1, true);
+    SimbleeForMobile.setVisible(IMAGE2, true);
   }
 }
 
@@ -775,7 +798,11 @@ void whatHappens7(){
   }  
 }
 
-void SimbleeCloud_onReceive(unsigned int originESN, const unsigned char *payload, int len) {
+void SimbleeCloud_onReceive(unsigned int originESN, const unsigned char *payload, int len){
+  if (payload[0] == '2'){
+    Serial.println("TWO RECEIVED!");
+    counter = 0;
+  }
 }
 
 void SimbleeCOM_onReceive(unsigned int esn, const char* payload, int len, int rssi) {
@@ -785,9 +812,9 @@ void SimbleeCOM_onReceive(unsigned int esn, const char* payload, int len, int rs
     valueA[1] = payload[2];
     valueA[2] = payload[3];
     valueA[3] = payload[4];
-    Serial.print("Light: ");
-    Serial.println(valueA);
-    Serial.println();
+    //Serial.print("Light: ");
+    //Serial.println(valueA);
+    //Serial.println();
   }
 
   //First read Humidity pointer '3' before storing sensor values into valueC
@@ -797,9 +824,9 @@ void SimbleeCOM_onReceive(unsigned int esn, const char* payload, int len, int rs
     valueC[2] = payload[3];
     valueC[3] = payload[4];
     valueC[4] = payload[5];
-    Serial.print("Humidity: ");
-    Serial.println(valueC);
-    Serial.println();
+    //Serial.print("Humidity: ");
+    //Serial.println(valueC);
+    //Serial.println();
   }
 
   //First read ECO2 pointer '4' before storing sensor values into valueD
@@ -808,9 +835,9 @@ void SimbleeCOM_onReceive(unsigned int esn, const char* payload, int len, int rs
     valueD[1] = payload[2];
     valueD[2] = payload[3];
     valueD[3] = payload[4];
-    Serial.print("ECO2: ");
-    Serial.println(valueD);
-    Serial.println();
+    //Serial.print("ECO2: ");
+    //Serial.println(valueD);
+    //Serial.println();
   }
 
   //First read Temperature pointer '2' before storing sensor values into valueB
@@ -820,10 +847,16 @@ void SimbleeCOM_onReceive(unsigned int esn, const char* payload, int len, int rs
     valueB[2] = payload[3];
     valueB[3] = payload[4];
     valueB[4] = payload[5];
-    Serial.print("Temperature: ");
-    Serial.println(valueB);
-    Serial.println();
+    //Serial.print("Temperature: ");
+    //Serial.println(valueB);
+    //Serial.println();
   }
+/*
+  counter = counter + 1;
+  Serial.print("Counter: ");
+  Serial.println(counter);
+  Serial.println();
+  */
 }
 
 void SimbleeBLE_onDualModeStart () {
@@ -831,3 +864,8 @@ void SimbleeBLE_onDualModeStart () {
 
 void SimbleeBLE_onDualModeEnd () {
 }
+
+void SimbleeCloud_onDisconnect(){
+  Simblee_systemReset();
+}
+
