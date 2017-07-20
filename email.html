@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 <html> 
     <head>
         <meta charset="utf-8" />
@@ -9,8 +8,14 @@
     </head>
     
      <style>
-         
-/* The side navigation menu */
+/*moves sideNav to ideal position but need to reposition "main" text"*/
+.moveSideNav{
+    position: relative;
+    right: 0;
+    bottom: 45px;
+        }
+        
+    /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
@@ -47,7 +52,8 @@
     font-size: 36px;
     margin-left: 50px;
 }
-
+       
+        
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
     transition: margin-left .5s;
@@ -59,33 +65,7 @@
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
-         
-/* old sideNav CSS      
-.vertical-menu {
-    width: 200px;
-    height:auto;
-    align-content: center;
-    top: 50px;
-    
-}
-
-.vertical-menu a {
-    background-color: #eee; 
-    color: black; 
-    display: block; 
-    padding: 12px; 
-    text-decoration: none; 
-   
-}
-
-.vertical-menu a:hover {
-    background-color: #ccc; 
-
-.vertical-menu a.active {
-    background-color: #4CAF50; 
-    color: white;
-}
-*/
+        
             
 ul.NavBarstyle {
     list-style-type: none;
@@ -137,8 +117,7 @@ li a :hover {
     </style>
     
 
-      
-<!-- NavBar new -->
+   <!-- NavBar new -->
    <div class="w3-top topNavBar">
     
   <div class="w3-bar w3-black" id="myNavbar">
@@ -147,104 +126,81 @@ li a :hover {
       <i class="fa fa-bars"></i>
     </a>
       
-    <!-- NavBar --> 
-   <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab">Home</a>
-    <a href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab"> About</a>
+  <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab ">Home</a>
+    <a href="tables.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab"> Data</a>
     <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar myTab w3-padding-large" > Contact</a>
-    <a href="login.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab "> Account </a>
+    <a href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab"> About</a>
+    <a href="login.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab "> Log In </a>
+    <a href="useraccount.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab active "> Your Account </a>
+	
 
   </div>
-    
+
 
   <!-- Navbar on small screens --> 
   <div id="navDemo" class="w3-bar-block w3-mobile w3-black w3-hide w3-hide-large">
     <a href="index.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Home</a>
-    <a href="about.html" class="w3-bar-item w3-button" onclick="toggleFunction()">About</a>
+    <a href="tables.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Data</a>
     <a href="contact.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
-    <a href="login.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Account</a>
- 
-  </div>
+    <a href="about.html" class="w3-bar-item w3-button" onclick="toggleFunction()">About</a>
+    <a href="login.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Log In</a>
+    <a href="useraccount.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Your Account</a>
 
-    </div>
-    
-    <!--- old sideNav 
+       </div>
+
+</div>  
     <section class="wrapper style1 align-center">
         
-            <div class="w3-row w3-padding-64 ">
+    <div class="w3-row w3-padding-64 ">
             
-                    <div class="w3-col w3-padding-32" style="width:250px">
-                    <div class="vertical-menu">  
-                      <h3 style="color:black">Your iPlant</h3>
-                      <a href="useraccount.html">Home</a>
-                      <a href="history.html">History</a>
-                      </div>
-
-
-
-                    <div class="vertical-menu">
-                      <h3 style="color:black">Manage Account</h3>
-                      <a href="addiplant.html">Add an iPlant</a>
-                      <a href="settings.html">Account Settings</a>
-                    </div>
-
-
-                    <div class="vertical-menu">
-                      <h3 style="color:black">Support</h3>
-                      <a href="email.html"  class="active">Contact us</a>
-                      <a href="faq.html">FAQ</a>
-                    </div>
-                </div>
-      --->
-   
-            <div id="mySidenav" class="sidenav">
-                
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="#">Your iPlant</a>
+        <div class="w3-col w3-padding-32" style="width:150px">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">-Your iPlant-</a>
                 <a href="useraccount.html">Home</a>
                 <a href="history.html">History</a>
-                <a href="#">Manage account</a>
+                <a href="#">-Manage account-</a>
                 <a href="addiplant.html">Add an iPlant</a>
                 <a href="settings.html">Account Settings</a>
-                <a href="#">Support</a>
+                <a href="#">-Support-</a>
                 <a href="email.html">Contact Us</a>
                 <a href="faq.html">FAQ</a>
-     
-  <!-- Use any element to open the sidenav -->
-<span onclick="openNav()">options</span>
-     
+</div>
+            <!-- Use any element to open the sidenav -->
+<span onclick="openNav()" class="moveSideNav">→ Account Menu</span>
+
+</div>
+        
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <div id="main">
+  
+ <div class="w3-rest w3-padding-32">
+     
+    <h1> E-mail us: </h1>
+    <p> iPlantteam@gmail.com </p>
+    <h1> Call us: </h1>
+    <p> 1-800-iPlant </p>
     
-    <div class="contactus w3-rest w3-padding-32">
-    <h1> Send us an E-mail:</h1>
-    <p>iPlantteam@gmail.com</p>
-    
-    <h1> Call our Helpline:</h1>
-    <p>1-800-iPlant</p>
+</div>
+</div>
     </div>
-                </div>
-      </div>
-
-
+</section>
     
-	 <!-- Footer -->
+    <!-- Footer -->
 					<footer class="wrapper style1 align-center">
 						<div class="inner"> 
 							<ul class="icons" style = "display: inline-block;">
-								<li class = "icons"><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-								<li class = "icons"><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-								<li class = "icons"><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-								<li class = "icons"><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
-								<li class = "icons"><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+								<li class = "icons"><a href="https://twitter.com/iPlantTeam" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li class = "icons"><a href="https://www.facebook.com/Plant-Team-1770541762960314/" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li class = "icons"><a href="https://www.instagram.com/iplantteam/" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li class = "icons"><a href="https://www.linkedin.com/in/iplant-team-722687147/" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li class = "icons"><a href="email.html" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
 							</ul>
 							<p>&copy; iPlant 2017. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 						</div>
 					</footer>
-
-			
-
-		 <!--- Sripts --->
-    
-    		<script src="assets/js/jquery.min.js"></script>
+<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
@@ -252,34 +208,39 @@ li a :hover {
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script type="text/javascript" src="SimbleeCloud.js"></script>
-
-    <script>
-    function openNav(){
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-        
-    }
-        function closeNav(){
-            document.getElementById("mySidenav").style.width="0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-    
-    
-    </script>
-    
-<!--- old sideNav    
-        <script>
-            
-               function toggleFunction() {
+			<script type="text/javascript">
+       	
+// NEW drop down menu
+    function toggleFunction() {
     var x = document.getElementById("navDemo");
     if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
     } else {
         x.className = x.className.replace(" w3-show", "");
     }
-}            
-       </script>
---->
+}                      
+  </script>
+
+   
+<script>
+    
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNav() {
+   document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+    
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+   document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    document.body.style.backgroundColor = "white";
+}
+    </script>
+   
+    
+    
     
     
 </html>
