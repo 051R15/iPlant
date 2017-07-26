@@ -260,10 +260,10 @@ void loop() {
     whatHappens7();
   }
 
-  /*if (counter == 15){
+  if (counter == 15){
     Serial.println("RESET INITIATED");
     Simblee_systemReset();  
-  }*/
+  }
   
   SimbleeForMobile.process();
   cloud.process();
