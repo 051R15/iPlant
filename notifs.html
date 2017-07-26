@@ -472,8 +472,8 @@ li a :hover {
 
 	var pluginOptions = {
 		clickToHide: true,
-		autoHide: true,
-		autoHideDelay: 5000,
+		autoHide: false,
+		//autoHideDelay: 5000,
 		arrowShow: true,
 		arrowSize: 5,
 		breakNewLines: true,
@@ -908,31 +908,48 @@ li a :hover {
 
 }));
     
- 
+// outside of optimal range
+    
 //Too much light
- $.notify("Your plant is receiving too much light!");
+ $.notify("Your plant is receiving too much light!", "warn");
     
 //Too little light
- $.notify("Your plant is receiving too little light!");
+ $.notify("Your plant is receiving too little light!", "warn");
     
 //Too hot
- $.notify("It is too hot for your plant!");
+ $.notify("It is too hot for your plant!", "warn");
 
 //Too cold
- $.notify("It is too cold for your plant!");
+ $.notify("It is too cold for your plant!", "warn");
     
 //Too humid
- $.notify("It is too humid for your plant!");
+ $.notify("It is too humid for your plant!", "warn");
     
 //Too dry
- $.notify("It is not humid enough for your plant!");
+ $.notify("It is not humid enough for your plant!", "warn");
     
 //Too much CO2
- $.notify("There is too much CO2 for your plant!");
+ $.notify("There is too much CO2 for your plant!", "warn");
     
 //Too much CO2
- $.notify("There is not enough CO2 for your plant!");
+ $.notify("There is not enough CO2 for your plant!", "warn");
+   
     
+//in optimal range
+
+// enough light
+ $.notify("Your plant is receiving enough light!", "success");   
+    
+ // good temp
+ $.notify("Your plant's environment is at an ideal temperature!", "success");    
+    
+// enough humidity
+ $.notify("Your plant's environment is at an ideal humidity!", "success"); 
+
+// enough CO2
+ $.notify("Your plant is receiving an ideal amount of CO2!", "success");   
+    
+
     
     </script>   
      
