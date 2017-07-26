@@ -175,8 +175,6 @@ void loop() {
     counter = ++ counter;
     Serial.print("Counter: ");
     Serial.println(counter);
-    Serial.println();
-    //Serial.println("Simblee System Reset!");
     //Simblee_systemReset();
   }
 
@@ -263,13 +261,15 @@ void loop() {
   }
 
   
-  if (counter >= 15){
+  if (counter == 15){
     Serial.println("RESET INITIATED");
     Simblee_systemReset();  
   }
   
   SimbleeForMobile.process();
   cloud.process();
+
+  delay(1000);
 }
 
 void SimbleeForMobile_onConnect()
@@ -800,8 +800,8 @@ void whatHappens7(){
 
 void SimbleeCloud_onReceive(unsigned int originESN, const unsigned char *payload, int len){
   if (payload[0] == '2'){
-    Serial.println("TWO RECEIVED!");
-    counter = 0;
+    //Serial.println("TWO RECEIVED!");
+    //counter = 0;
   }
 }
 

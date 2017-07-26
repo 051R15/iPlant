@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<!--- Original code with scroll bar for table --->
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+
+<!--- HOW TO MAKE MENU LONGER ?--->
+
+<html>
+	<head>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+	
+    <style>
+        
+.vertical-menu {
+    width: 200px; /* Set a width if you like */
+    height:auto;
+    position:relative;
+    top: 50px;
+    
+}
+
+.vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+   
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+}
+
+        /*
+        .header1{
+            position:relative;
+            bottom: 300px;
+            margin-left: 175px;
+        }
+        
+
+         .header3{
+            position:relative;
+            bottom: 625px;
+            margin-left: 175px;
+        }
+        
+         .paragraph{
+            position:relative;
+            bottom: 600px;
+            margin-left: 200px;
+        }
+        
+          .header2{
+          position:relative;
+          bottom: 600px;
+          margin-left: 175px;
+        }  
+         .paragraphdata{
+          position:relative;
+          bottom: 610px;
+          margin-left: 175px;
+        }  
+        
+         .header3data{
+          position:relative;
+          bottom: 600px;
+          margin-left: 175px;
+        }  
+        
+         .table{
+          position:relative;
+          bottom: 600px;
+          margin-left: 175px;
+             
+        }  
+        
+        
+        
+        .movediv1{
+          position:relative;
+          bottom: 400px;
+          margin-left: 200px; 
+        } 
+        
+         .movediv2{
+          position:relative;
+          top: 100px;
+          margin-left: 200px; 
+        } 
+*/
+        
+ul.NavBarstyle {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+   
+}
+        
+li.NavBarstyle {
+    float: left;
+}
+
+li a.NavBarstyle {
+    display: block;
+    text-align: center;
+    padding: 22px 26px;
+    color : white;
+    text-decoration: none;
+}
+        
+li.icons a {
+    color:black;
+}
+        
+        
+/* Change the link color to #111 (black) on hover */
+/*drop down bar*/
+        
+li a.NavBarstyle :hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+ nav select {
+     display:none;
+}
+
+        
+        @media (max-width: 700px) {
+            nav ul {display: none;}
+            nav select {display: inline-block;}
+        }   
+
+    </style>
+    </head>
+    <body>
+       
+   
+<!-- NavBar new -->
+
+   <div class="w3-top topNavBar">
+    
+  <div class="w3-bar w3-black" id="myNavbar">
+
+    <a class="w3-bar-item w3-button w3-hover-black  w3-hide-large w3-left" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+      
+   <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab">Home</a>
+    <a href="tables.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab"> Data</a>
+    <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar myTab w3-padding-large" > Contact</a>
+    <a href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab"> About</a>
+    <a href="login.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab "> Log In </a>
+    <a href="useraccount.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab active"> Your Account </a>
+	
+
+  </div>
+
+        
+  <!-- Navbar on small screens --> 
+    
+  <div id="navDemo" class="w3-bar-block w3-mobile w3-black w3-hide w3-hide-large">
+    <a href="index.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Home</a>
+    <a href="tables.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Data</a>
+    <a href="contact.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
+    <a href="about.html" class="w3-bar-item w3-button" onclick="toggleFunction()">About</a>
+    <a href="login.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Log In</a>
+    <a href="useraccount.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Your Account</a>
+
+   
+  </div>
+
+</div>
+  
+        <section class="wrapper style1 align-center">
+
+<div class="w3-row w3-padding-32">
+    
+    
+
+
+    <div class="w3-third w3-container w3-blue">
+<!--- your iPlant subsection--->
+    
+    
+<div class="vertical-menu">  
+  <h3 style="color:black">Your iPlant</h3>
+  <a href="useraccount.html" class="active">Home</a>
+  
+  <a href="#">History</a>
+  </div>
+    
+<!--- manage account subsection--->
+    
+    
+<div class="vertical-menu">
+  <h3 style="color:black">Manage Account</h3>
+  <a href="#">Add an iPlant</a>
+  <a href="#">Account Settings</a>
+</div>
+
+        
+
+<!--- support subsection--->
+    
+    
+<div class="vertical-menu">
+  <h3 style="color:black">Support</h3>
+  <a href="#">Forum</a>
+  <a href="usertables.html">FAQ</a>
+</div>
+</div>
+  
+
+<div class=" content w3-twothird w3-green w3-container">
+                            
+    <h1 class = "header1" align="center">Your iPlant Account</h1>
+    <h3 class = "header3" align="center">Welcome [content: username]</h3>
+    <p  align="center">Welcome to your iPlant account. Here you can manage your personal details, see your plant status, manage your plant's environment, and much more. Please choose an option from the menu on the left. </p>
+
+         
+<!-- Five -->
+
+					
+						<div class="movediv2 inner align-center">
+						
+						<h2 class="header2">Your Garden</h2>
+							<p class = "paragraphdata">All your plant data. All in one place.</p>
+							<h3 class="header3data">Cloud Status: <span id="cloud_status" class="disconnected">Disconnected</span></h3>
+							<h3 class="header3data">Data Status: <span id="data_status" class="disconnected">Disconnected</span></h3>
+							<TABLE Align="center" Border="8" Width="300" class = "table">
+							
+							<tr>
+							<th>Light(cd)</th>
+							<th>Temperature (°C)</th>
+							<th>Humidity(%)</th>
+							<th>CO2(ppm)</th>
+							</tr>
+							
+							<tr>
+							<th id = "light_value">no data available</th>
+							<th id= "temp_value">no data available</th>
+							<th id= "humid_value" >no data available</th> 
+							<th id= "CO2_value">no data available</th>
+							</tr>
+	
+							</TABLE>
+	
+							</div>
+       
+                    
+               
+        </div>
+        </div>
+            </section>
+
+
+    
+  
+		<!-- Wrapper -->
+    
+			<div id="wrapper" class="divided">
+
+				<!-- One -->
+					
+                              <!-- Footer -->
+					<footer class="wrapper style1 align-center">
+						<div class="inner"> 
+							<ul class="icons" style = "display: inline-block;">
+								<li class = "icons"><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li class = "icons"><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li class = "icons"><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li class = "icons"><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li class = "icons"><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p>&copy; iPlant 2017. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						</div>
+					</footer>
+
+			</div>
+                            
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="SimbleeCloud.js"></script>
+			
+
+        
+        <script>
+        
+
+	
+// NEW drop down menu
+    function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}            
+
+                        </script>
+                </section>
+    </div>
+    </body>
+</html>
