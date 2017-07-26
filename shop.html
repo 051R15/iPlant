@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+
+		<title>iPlantHome</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        
+
+	</head>
+	
+    <style>   
+        
+        
+body
+{
+  background-color:#eee
+}
+.wrap
+{
+  margin:50px auto 0 auto;
+  width:100%;
+  display:flex;
+  align-items:space-around;
+  max-width:1200px;
+}
+.tile
+{
+  width:380px;
+  height:380px;
+  margin:10px;
+  background-color:#99aeff;
+  display:inline-block;
+  background-size:cover;
+  position:relative;
+  cursor:pointer;
+  transition: all 0.4s ease-out;
+  box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.44);
+  overflow:hidden;
+  color:white;
+  font-family:'Roboto';
+  
+}
+.tile img
+{
+  height:100%;
+  width:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:0;
+  transition: all 0.4s ease-out;
+}
+.tile .text
+{
+/*   z-index:99; */
+  position:absolute;
+  padding:30px;
+  height:calc(100% - 60px);
+}
+.tile h1
+{
+ 
+  font-weight:300;
+  margin:0;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+.tile h2
+{
+  font-weight:100;
+  margin:20px 0 0 0;
+  font-style:italic;
+   transform: translateX(200px);
+}
+.tile p
+{
+  font-weight:300;
+  margin:20px 0 0 0;
+  line-height: 25px;
+/*   opacity:0; */
+  transform: translateX(-200px);
+  transition-delay: 0.2s;
+}
+.animate-text
+{
+  opacity:0;
+  transition: all 0.6s ease-in-out;
+}
+.tile:hover
+{
+/*   background-color:#99aeff; */
+box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
+  transform:scale(1.05);
+}
+.tile:hover img
+{
+  opacity: 0.2;
+}
+.tile:hover .animate-text
+{
+  transform:translateX(0);
+  opacity:1;
+}
+.dots
+{
+  position:absolute;
+  bottom:20px;
+  right:30px;
+  margin: 0 auto;
+  width:30px;
+  height:30px;
+  color:currentColor;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-around;
+  
+}
+
+.dots span
+{
+    width: 5px;
+    height:5px;
+    background-color: currentColor;
+    border-radius: 50%;
+    display:block;
+  opacity:0;
+  transition: transform 0.4s ease-out, opacity 0.5s ease;
+  transform: translateY(30px);
+ 
+}
+
+.tile:hover span
+{
+  opacity:1;
+  transform:translateY(0px);
+}
+
+.dots span:nth-child(1)
+{
+   transition-delay: 0.05s;
+}
+.dots span:nth-child(2)
+{
+   transition-delay: 0.1s;
+}
+.dots span:nth-child(3)
+{
+   transition-delay: 0.15s;
+}
+
+
+@media (max-width: 1000px) {
+  .wrap {
+   flex-direction: column;
+    width:400px;
+  }
+}    
+        
+        
+        
+ul.NavBarstyle {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+   
+}
+        
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 22px 26px;
+    color : white;
+    text-decoration: none;
+}
+        
+li.icons a {
+    color:black;
+}
+        
+        
+/* Change the link color to #111 (black) on hover */
+li a :hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+      
+ nav select {
+     display:none;
+} 
+        
+        @media (max-width: 700px) {
+            nav ul {display: none;}
+            nav select {display: inline-block;}
+     
+        }   
+    
+    </style>
+
+     
+<!-- NavBar new -->
+   <div class="w3-top topNavBar">
+    
+  <div class="w3-bar w3-black" id="myNavbar">
+
+    <a class="w3-bar-item w3-button w3-hover-black  w3-hide-large w3-left" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+      
+    <!-- NavBar --> 
+   <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar w3-padding-large myTab">Home</a>
+    <a href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab"> About</a>
+    <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-hide-medium navbar myTab w3-padding-large" > Contact</a>
+    <a href="login.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab "> Account </a>
+    <a href="shop.html" class = "w3-bar-item w3-button w3-hide-small w3-hide-medium w3-padding-large navbar myTab active "> Shop </a>
+
+  </div>
+    
+
+  <!-- Navbar on small screens --> 
+  <div id="navDemo" class="w3-bar-block w3-mobile w3-black w3-hide w3-hide-large">
+    <a href="index.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Home</a>
+    <a href="about.html" class="w3-bar-item w3-button" onclick="toggleFunction()">About</a>
+    <a href="contact.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Contact</a>
+    <a href="login.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Account</a>
+    <a href="shop.html" class="w3-bar-item w3-button" onclick="toggleFunction()">Shop</a>
+ 
+  </div>
+
+    </div>
+    
+<div class = "w3-padding-64">
+    
+ <h1> iPlant Online Shop</h1>   
+ <h3> Click through our various deals to find one that's right for you!</h3>
+    
+    </div>
+    
+    
+<div class="wrap">
+<div class="tile"> 
+  <img src="images/shop1.JPG"/>
+  <div class="text">
+  <h1>iPlant Starter Deal</h1>
+  <h2 class="animate-text">$99</h2>
+  <p class="animate-text ctext">Everything you need to get started.  Get started with your iPlant and set up an account online and for mobile for free.</p>
+<div class="dots">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </div>
+ </div>
+
+
+<div class="tile"> 
+  <img src="images/orchids.jpg"/>
+  <div class="text">
+  <h1>iPlant Package Deal</h1>
+  <h2 class="animate-text">$189</h2>
+  <p class="animate-text">Get a great deal on 2 iPlants. Makes an ideal gift and includes the setup of 2 free accounts online and on mobile. </p>
+<div class="dots">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </div>
+ </div>
+  
+  <div class="tile"> 
+  <img src="images/farm.jpg"/>
+  <div class="text">
+  <h1>Farmer's Deal</h1>
+  <h2 class="animate-text">Starting at $279 </h2>
+  <p class="animate-text">iPlant offers a solution for farmers, schools, and hobby gardeners.</p>
+<div class="dots">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </div>
+ </div>
+</div>
+
+<!-- Footer -->
+					<footer class="wrapper style1 align-center">
+						<div class="inner"> 
+							<ul class="icons" style = "display: inline-block;">
+								<li class = "icons"><a href="https://twitter.com/iPlantTeam" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li class = "icons"><a href="https://www.facebook.com/Plant-Team-1770541762960314/" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+								<li class = "icons"><a href="https://www.instagram.com/iplantteam/" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li class = "icons"><a href="https://www.linkedin.com/in/iplant-team-722687147/" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li class = "icons"><a href="email.html" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p>&copy; iPlant 2017. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						</div>
+					</footer>
+
+			
+
+		 <!--- Sripts --->
+    
+    		<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script type="text/javascript" src="SimbleeCloud.js"></script>
+       
+        <script>
+            
+               function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}            
+       </script>
+</html>
